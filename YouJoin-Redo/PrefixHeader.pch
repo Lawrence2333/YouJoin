@@ -1,0 +1,48 @@
+//
+//  PrefixHeader.pch
+//  YouJoin
+//
+//  Created by MacBookPro on 15/11/9.
+//  Copyright © 2015年 MacBookPro. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+// 昵称的字体
+#define YJ_NameFont [UIFont systemFontOfSize:10]
+// 正文的字体
+#define YJ_SMALLTEXT_FONT [UIFont systemFontOfSize:10]
+#define YJ_TextFont [UIFont systemFontOfSize:12]
+#define YJ_TextPadding 10
+#define INSERT 15
+
+//头像圈
+#define CIRCLE_BORDER_WIDTH 1.0
+
+
+#define YJ_LIGHT_GRAY_COLOR01 [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1]
+#define YJ_LIGHT_GRAY_COLOR02 [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1]
+#define YJ_LIGHT_GRAY_COLOR03 [UIColor colorWithRed:70/255.0 green:70/255.0 blue:70/255.0 alpha:0.7]
+#define YJ_CIRCLE_BORDER_COLOR [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5]
+#define YJ_HOMEPAGE_GRAY_COLOR [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1]
+#define YJ_NAVIGATIONBAR_COLOR [UIColor colorWithRed:30/255.0 green:149/255.0 blue:229/255.0 alpha:1]
+
+#define YJ_NAVIGATIONBAR_TITLE_ATTRS [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,nil]
+
+
+#define UPDATE_USERINFO_URL @"http://www.tekbroaden.com/youjoin-server/controllers/update_userinfo.php"
+#define SEND_TWEET_URL @"http://www.tekbroaden.com/youjoin-server/controllers/send_tweet.php"
+#define LOGINURL @"http://www.tekbroaden.com/youjoin-server/controllers/signin.php"
+#define SIGNUPRUL @"http://www.tekbroaden.com/youjoin-server/controllers/signup.php"
+#define REQUEST_USERINFO_URL @"http://www.tekbroaden.com/youjoin-server/controllers/request_userinfo.php"
+#define GET_FRIENDLIST_URL @"http://www.tekbroaden.com/youjoin-server/controllers/get_friendlist.php"
+#define ADD_FRIEND_URL @"http://www.tekbroaden.com/youjoin-server/controllers/add_friend.php"
+#define SEND_MESSAGE_URL @"http://www.tekbroaden.com/youjoin-server/controllers/send_message.php"
+#define GET_TWEETS_URL @"http://www.tekbroaden.com/youjoin-server/controllers/get_tweets.php"
+#define COMMENT_TWEET_URL @"http://www.tekbroaden.com/youjoin-server/controllers/comment_tweet.php"
+#define UPVOTE_TWEET_URL @"http://www.tekbroaden.com/youjoin-server/controllers/upvote_tweet.php"
+#define GET_COMMENTS_URL @"http://www.tekbroaden.com/youjoin-server/controllers/get_comments.php"
+#endif /* PrefixHeader_pch */

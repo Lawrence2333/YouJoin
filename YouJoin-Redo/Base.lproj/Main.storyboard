@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KQ2-gX-XIm">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--main View Controller-->
+        <scene sceneID="h6y-s2-4Ew">
+            <objects>
+                <viewController id="KQ2-gX-XIm" customClass="YJ_mainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QvA-8c-KhI"/>
+                        <viewControllerLayoutGuide type="bottom" id="CtQ-zf-62W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LQQ-aB-Q5s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ios-login" translatesAutoresizingMaskIntoConstraints="NO" id="eNy-e9-jMU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6Z-Fa-sKv">
+                                <rect key="frame" x="96" y="323" width="134" height="63"/>
+                                <animations/>
+                                <state key="normal" title="Button" image="login_btn"/>
+                                <connections>
+                                    <action selector="touchLoginBtn" destination="KQ2-gX-XIm" eventType="touchUpInside" id="fDm-9w-Uy4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9k-mi-UgJ">
+                                <rect key="frame" x="129" y="381" width="113" height="22"/>
+                                <animations/>
+                                <state key="normal" title="Button" image="signup_btn"/>
+                                <connections>
+                                    <action selector="touchSignUpBtn" destination="KQ2-gX-XIm" eventType="touchUpInside" id="kWw-VQ-FJE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48A-Dl-syR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="405"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ios-login" width="750" height="1334"/>
+        <image name="login_btn" width="131" height="51"/>
+        <image name="signup_btn" width="59" height="17"/>
+    </resources>
+</document>
