@@ -39,10 +39,13 @@
 @implementation YJ_homepageLeftListController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     [self.navigationController.navigationBar setBarTintColor:YJ_NAVIGATIONBAR_COLOR];
     [self.navigationController.navigationBar setTitleTextAttributes:YJ_NAVIGATIONBAR_TITLE_ATTRS];
+    
+    self.tabBarController.tabBar.hidden = YES;
     
     //backgroundImage setting
     UIImageView *backgroundImage = [[UIImageView alloc]init];
@@ -130,7 +133,6 @@
     scollView.contentSize = CGSizeMake(320, CGRectGetMaxY(userSign.frame)+300);
     
     [self.view addSubview:scollView];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)touchSave {
@@ -146,14 +148,10 @@
     self.userDetailInfo.userLocation = self.userLocation.myTextfield.text;
     self.userDetailInfo.userFocusNum = self.userDetailInfo.userFocusNum;
     self.userDetailInfo.userFollowNum = self.userDetailInfo.userFollowNum;
-//    self.userDetailInfo.result = self.userDetailInfo.result;
     
     self.userDetailInfo.userImage = self.userImage;
-//    
-//    YJ_userInfo *test = self.myUserInfo;
     
     NSString* documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    //    NSString* documentPath = @"/Users/MAC/Desktop/";
     NSString* avatarPath = [documentPath stringByAppendingPathComponent:self.userDetailInfo.userImage];
     
     NSString *resultString = [RequestPostUploadHelper postRequestWithURL:UPDATE_USERINFO_URL postParems:[self.userDetailInfo dictFromUserInfo] picFilePath:avatarPath picFileName:self.userDetailInfo.userImage];

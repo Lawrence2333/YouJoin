@@ -21,6 +21,7 @@
 #import "YJ_editTweetController.h"
 #import "NSString+CutLastChar.h"
 #import "UIImage+Circle.h"
+#import "YJ_TweetCommentTableViewController.h"
 #import "UIImageView+WebCache.h"
 
 @interface YJ_homepageTableViewController ()<UITableViewDelegate,UITableViewDataSource,YJ_editTweetSendDelegate>
@@ -180,6 +181,15 @@
     return cell;
 }
 
+#pragma mark - 选择cell
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    YJ_TweetCommentTableViewController *tweetCommentVC = [[YJ_TweetCommentTableViewController alloc]init];
+    tweetCommentVC.tweet = ((YJ_homepageTweetFrame *)self.tweetsFrames[self.tweetsFrames.count - indexPath.row - 1]).tweets;
+    
+    [self.navigationController pushViewController:tweetCommentVC animated:YES];
+}
+
 #pragma mark - 下拉刷新
 -(void)setupRefresh{
     
@@ -229,63 +239,10 @@
 //        NSString *filename=[path stringByAppendingPathComponent:[NSString stringWithFormat:@"tweetsOf%@.plist",[[YJ_userInfo sharedInstance]username]]];
 //        //写入文件
 //        [self.tweetsFrames writeToFile:filename atomically:YES];
-        
     }];
     
     [control endRefreshing];
 }
-
-
-//-(void)refreshData:(UIRefreshControl *)control{
-//    
-//    //设置url
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[[NSURL alloc]initWithString:GET_TWEETS_URL]];
-//    
-//    request.HTTPBody = [[NSString stringWithFormat:@"tweet_id=%s&user_id=%@&time=%d","0",self.appdelegate.userInfo.userID,1]dataUsingEncoding:NSUTF8StringEncoding];
-//    request.HTTPMethod = @"POST";
-//    
-//    //获取数据
-//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-//        /**收到的字典集
-//         * 格式为：
-//         * NSString * result
-//         * NSArray * receivedTweetsArray
-//         *
-//         */
-//        NSDictionary *receivedDict = [YJ_JSONSerialization dictWithDataWithArray:data];
-//        if ([[receivedDict valueForKey:@"result"]isEqualToString:@"failure"]) {
-//            return ;
-//        }
-//        
-//        NSMutableArray *dictArray = [[NSMutableArray alloc]init];
-//        
-//        for (YJ_ReceivedTweet * receivedTweet in [YJ_ReceivedTweets receivedTweetsArrayWithDict:receivedDict].receivedTweetsArray) {
-//            
-//            [dictArray  addObject:[YJ_ReceivedTweet tweetsDictWithReceivedTweet:receivedTweet]];
-//        }
-//        
-//        NSMutableArray *tweetsFrameArray = [NSMutableArray array];
-//        for (NSDictionary *dict in dictArray) {
-//            // 创建YJ_Tweets模型对象
-//            YJ_Tweets *tweets = [YJ_Tweets tweetsWithDict:dict];
-//            
-//            // 创建YJ_TweetsFrame模型对象
-//            YJ_TweetsFrame *tweetsFrame = [[YJ_TweetsFrame alloc] init];
-//            tweetsFrame.tweets = tweets;
-//            
-//            // 添加模型对象到数组中
-//            [tweetsFrameArray addObject:tweetsFrame];
-//        }
-//        
-//        [self.tweetsFrames addObjectsFromArray:tweetsFrameArray];
-//        
-//        [self.tableView reloadData];
-//        
-//        //        // 3.将dictArray里面的所有字典转成模型对象,放到新的数组中
-//    }];
-//    
-//    [control endRefreshing];
-//}
 
 /*
 // Override to support conditional editing of the table view.

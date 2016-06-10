@@ -18,10 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chatting_background" translatesAutoresizingMaskIntoConstraints="NO" id="T7d-pn-wJK">
-                    <rect key="frame" x="0.0" y="0.0" width="325" height="568"/>
-                    <animations/>
-                </imageView>
                 <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yVA-16-MYz">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                     <animations/>
@@ -94,7 +90,6 @@
         </view>
     </objects>
     <resources>
-        <image name="chatting_background" width="750" height="1334"/>
         <image name="homepage_edit_picBtn" width="32" height="32"/>
         <image name="homepage_edit_sendBtn" width="99" height="104"/>
     </resources>

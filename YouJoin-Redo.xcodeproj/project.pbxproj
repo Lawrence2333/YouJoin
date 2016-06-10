@@ -54,6 +54,9 @@
 		041011C31CE0BAD900BC09CF /* YJ_chattingConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041011C21CE0BAD900BC09CF /* YJ_chattingConversation.m */; };
 		0413D2411CCF5EB900D5E72C /* YJ_networkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0413D2401CCF5EB800D5E72C /* YJ_networkTool.m */; };
 		0420CA021CD8D31B0022B892 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0420CA011CD8D31B0022B892 /* images.xcassets */; };
+		0431AE5B1D0868E500EC75CC /* YJ_homepageTweetComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431AE5A1D0868E500EC75CC /* YJ_homepageTweetComment.m */; };
+		0431AE5E1D086B2100EC75CC /* YJ_homepageTweetCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431AE5D1D086B2100EC75CC /* YJ_homepageTweetCommentCell.m */; };
+		0431AE5F1D087D3000EC75CC /* YJ_TweetCommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEE5E11D07B61E004063A1 /* YJ_TweetCommentTableViewController.m */; };
 		043229E01CA122FB002176D1 /* YJ_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043229DE1CA122FB002176D1 /* YJ_LoginViewController.m */; };
 		043229E11CA122FB002176D1 /* YJ_LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043229DF1CA122FB002176D1 /* YJ_LoginViewController.xib */; };
 		043229F41CA13B1E002176D1 /* YJ_mainTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043229F31CA13B1E002176D1 /* YJ_mainTabbarViewController.m */; };
@@ -93,6 +96,7 @@
 		04FA4F621CA2893B00C2FC51 /* YJ_homepageTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA4F611CA2893B00C2FC51 /* YJ_homepageTweet.m */; };
 		04FDA0FC1CC218690023C588 /* YJ_moreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDA0FB1CC218690023C588 /* YJ_moreViewController.m */; };
 		04FDA0FF1CC21AAB0023C588 /* YJ_userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDA0FE1CC21AAB0023C588 /* YJ_userInfo.m */; };
+		04FEE5E21D07B61E004063A1 /* YJ_TweetCommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEE5E11D07B61E004063A1 /* YJ_TweetCommentTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +218,10 @@
 		0413D23F1CCF5EB800D5E72C /* YJ_networkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_networkTool.h; sourceTree = "<group>"; };
 		0413D2401CCF5EB800D5E72C /* YJ_networkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = YJ_networkTool.m; sourceTree = "<group>"; };
 		0420CA011CD8D31B0022B892 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		0431AE591D0868E500EC75CC /* YJ_homepageTweetComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_homepageTweetComment.h; sourceTree = "<group>"; };
+		0431AE5A1D0868E500EC75CC /* YJ_homepageTweetComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_homepageTweetComment.m; sourceTree = "<group>"; };
+		0431AE5C1D086B2100EC75CC /* YJ_homepageTweetCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_homepageTweetCommentCell.h; sourceTree = "<group>"; };
+		0431AE5D1D086B2100EC75CC /* YJ_homepageTweetCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_homepageTweetCommentCell.m; sourceTree = "<group>"; };
 		043229DD1CA122FB002176D1 /* YJ_LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_LoginViewController.h; sourceTree = "<group>"; };
 		043229DE1CA122FB002176D1 /* YJ_LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_LoginViewController.m; sourceTree = "<group>"; };
 		043229DF1CA122FB002176D1 /* YJ_LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJ_LoginViewController.xib; sourceTree = "<group>"; };
@@ -292,6 +300,8 @@
 		04FDA0FB1CC218690023C588 /* YJ_moreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_moreViewController.m; sourceTree = "<group>"; };
 		04FDA0FD1CC21AAB0023C588 /* YJ_userInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_userInfo.h; sourceTree = "<group>"; };
 		04FDA0FE1CC21AAB0023C588 /* YJ_userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_userInfo.m; sourceTree = "<group>"; };
+		04FEE5E01D07B61E004063A1 /* YJ_TweetCommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_TweetCommentTableViewController.h; sourceTree = "<group>"; };
+		04FEE5E11D07B61E004063A1 /* YJ_TweetCommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_TweetCommentTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,6 +734,8 @@
 				04FA4F411CA278FB00C2FC51 /* YJ_homepageTableViewController.m */,
 				040108981CDA473500D6F69F /* YJ_userInfoPageController.h */,
 				040108991CDA473500D6F69F /* YJ_userInfoPageController.m */,
+				04FEE5E01D07B61E004063A1 /* YJ_TweetCommentTableViewController.h */,
+				04FEE5E11D07B61E004063A1 /* YJ_TweetCommentTableViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -735,6 +747,8 @@
 				04FA4F611CA2893B00C2FC51 /* YJ_homepageTweet.m */,
 				043DA48F1CA40EA400C7AD26 /* YJ_homepageTweetFrame.h */,
 				043DA4901CA40EA400C7AD26 /* YJ_homepageTweetFrame.m */,
+				0431AE591D0868E500EC75CC /* YJ_homepageTweetComment.h */,
+				0431AE5A1D0868E500EC75CC /* YJ_homepageTweetComment.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -754,6 +768,8 @@
 				043DA48D1CA3D7ED00C7AD26 /* YJ_homepageTweetsCell.m */,
 				0401089B1CDAF9D200D6F69F /* YJ_userInfoPageCell.h */,
 				0401089C1CDAF9D200D6F69F /* YJ_userInfoPageCell.m */,
+				0431AE5C1D086B2100EC75CC /* YJ_homepageTweetCommentCell.h */,
+				0431AE5D1D086B2100EC75CC /* YJ_homepageTweetCommentCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -932,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0431AE5B1D0868E500EC75CC /* YJ_homepageTweetComment.m in Sources */,
 				041011981CE02DAB00BC09CF /* YJ_messagesFrame.m in Sources */,
 				044038FA1C5932080005436F /* YJ_View.m in Sources */,
 				040A5DDB1CDC8E710092C346 /* YJ_homepageLeftListController.m in Sources */,
@@ -951,6 +968,7 @@
 				044038FB1C5932080005436F /* YJ_userDetailInfo.m in Sources */,
 				044038EA1C592F140005436F /* UIImage+SmallImage.m in Sources */,
 				044038D61C59281E0005436F /* UIImage+Extension.m in Sources */,
+				0431AE5E1D086B2100EC75CC /* YJ_homepageTweetCommentCell.m in Sources */,
 				044038E71C592E070005436F /* MBProgressHUD.m in Sources */,
 				041011841CE0232700BC09CF /* SDWebImageManager.m in Sources */,
 				041011971CE02DAB00BC09CF /* YJ_messages.m in Sources */,
@@ -958,6 +976,7 @@
 				04E4573B1CE87C9A006CE627 /* YJ_SignUpViewController.m in Sources */,
 				044050931CD6E95500B156EA /* NSString+GroupAsArray.m in Sources */,
 				0410117D1CE0232700BC09CF /* MKAnnotationView+WebCache.m in Sources */,
+				04FEE5E21D07B61E004063A1 /* YJ_TweetCommentTableViewController.m in Sources */,
 				043DA48E1CA3D7ED00C7AD26 /* YJ_homepageTweetsCell.m in Sources */,
 				041011801CE0232700BC09CF /* SDWebImageCompat.m in Sources */,
 				041011C31CE0BAD900BC09CF /* YJ_chattingConversation.m in Sources */,
@@ -1016,6 +1035,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0431AE5F1D087D3000EC75CC /* YJ_TweetCommentTableViewController.m in Sources */,
 				044038C11C5927750005436F /* YouJoin_RedoUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

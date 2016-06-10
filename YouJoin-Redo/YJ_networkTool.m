@@ -16,28 +16,6 @@
 #import "YJ_JSONSerialization.h"
 @implementation YJ_networkTool
 
-/*
-+(void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void (^)(NSDictionary *))completion{
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:LOGINURL] ];
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [[NSString stringWithFormat:@"user_name=%@&user_password=%@",username,[password MD5]]dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (response != NULL) {
-            NSDictionary *receivedDict = [YJ_JSONSerialization JSONObjectWithDataUsingFix:data options:NSJSONReadingAllowFragments error:nil];
-            
-            completion(receivedDict);
-        }
-        else {
-            NSDictionary *failDict = [NSDictionary dictionaryWithObject:@"unknown failure" forKey:@"result"];
-            completion(failDict);
-        }
-       
-    }]resume];
-}
-*/
 +(void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void (^)(NSDictionary *))completion{
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:LOGINURL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
@@ -71,43 +49,6 @@
 }
 
 #pragma mark - tweets
-/*
-+(void)getTweetsWithTweetID:(NSString *)tweet_id userID:(NSString*)user_id time:(NSString *)time completion:(void (^)(NSArray *, NSString *))completion{
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:GET_TWEET_URL]];
-    
-    request.HTTPMethod = @"POST";
-    
-    [request setValue:@"application/jason" forHTTPHeaderField:@"Content-Type"];
-    
-    NSMutableDictionary *mudict = [NSMutableDictionary dictionary];
-    [mudict setObject:tweet_id forKey:@"tweet_id"];
-    [mudict setObject:user_id forKey:@"user_id"];
-    [mudict setObject:time forKey:@"time"];
-    
-    NSData *data = [NSJSONSerialization dataWithJSONObject:mudict options:NSJSONWritingPrettyPrinted error:nil];
-    request.HTTPBody = data;
-//    request.HTTPBody = [[NSString stringWithFormat:@"tweet_id=%@&user_id=%@&time=%@",tweet_id,user_id,time]dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (response != NULL) {
-            
-            NSDictionary * receivedDict = [YJ_JSONSerialization JSONObjectWithDataUsingFix:data options:NSJSONReadingAllowFragments error:nil];
-            
-            NSArray * tweetsArray = [receivedDict valueForKey:@"tweets"];
-            
-            NSString * resultStr = [receivedDict valueForKey:@"result"];
-            
-            completion(tweetsArray,resultStr);
-        }
-        
-        else completion(nil,@"unknown failure");
-        
-    }]resume];
-}
- */
 +(void)getTweetsWithTweetID:(NSString *)tweet_id userID:(NSString *)user_id time:(NSString *)time completion:(void (^)(NSArray *, NSString *))completion{
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:GET_TWEETS_URL]];
@@ -169,6 +110,27 @@
 
 }
 
++(void)isUpvoteTweetWithUserID:(NSString *)userID tweetID:(NSString *)tweetID completion:(void (^)(NSString *))completion{
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:IS_UPVOTE_TWEET_URL]];
+    request.HTTPMethod = @"POST";
+    NSString *sendStr = [NSString stringWithFormat:@"tweet_id=%@&user_id=%@",tweetID,userID];
+    NSLog(@"upvoteTweet------------sendStr==%@",sendStr);
+    request.HTTPBody = [sendStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        if (response!=NULL) {
+            NSDictionary *resultStr = [YJ_JSONSerialization JSONObjectWithDataUsingFix:data options:NSJSONReadingAllowFragments error:nil];
+            NSLog(@"upvoteTweet-----------resultStr==%@",resultStr);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion([resultStr valueForKey:@"result"]);
+            });
+        }
+    }];
+
+}
+
 +(void)getTweetCommentWithTweetID:(NSString *)tweetID completion:(void (^)(NSString *, NSArray *))completion{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:GET_COMMENTS_URL]];
     request.HTTPMethod = @"POST";
@@ -178,11 +140,11 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
         if (response!=NULL) {
-            NSDictionary *resultStr = [YJ_JSONSerialization JSONObjectWithDataUsingFix:data options:NSJSONReadingAllowFragments error:nil];
+            NSDictionary *resultStr = [YJ_JSONSerialization dictWithDataWithArray:data];
             NSLog(@"getTweetComment-----------resultStr==%@",resultStr);
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                completion([resultStr valueForKey:@"result"],[resultStr valueForKey:@"message"]);
+                completion([resultStr valueForKey:@"result"],[resultStr valueForKey:@"comments"]);
             });
         }
     }];
@@ -269,26 +231,6 @@
     
 }
 
-/*
-+(void)updateUserDetailInfo:(YJ_userDetailInfo *)sendUserDetailInfo completion:(void (^)(NSString *))completion{
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:UPDATE_USERINFO_URL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
-    request.HTTPMethod = @"POST";
-    NSString *sendStr = [NSString jsonStringWithDictionary:[sendUserDetailInfo dictFromUserInfo]];
-    request.HTTPBody = [sendStr dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        
-        if (response != NULL) {
-            
-            NSString *receivedStr = [[YJ_JSONSerialization JSONObjectWithDataUsingFix:data options:NSJSONReadingAllowFragments error:nil]valueForKey:@"result"];
-            completion(receivedStr);
-            
-        }
-    }];
-    
-}
-*/
 +(void)updateUserDetailInfo:(YJ_userDetailInfo *)sendUserDetailInfo picFilePath:(NSString *)picFilePath picFileName:(NSString *)picFileName completion:(void (^)(NSString *))completion{
     NSString *resultStr = [RequestPostUploadHelper postRequestWithURL:UPDATE_USERINFO_URL postParems:[sendUserDetailInfo dictFromUserInfo] picFilePath:picFilePath picFileName:picFileName];
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -297,28 +239,5 @@
 }
 
 #pragma mark - im
-
-//#warning 用了friendNickname
-//+(void)sendMessagesWithUsername:(NSString *)username friendInfo:(YJ_friend *)friendInfo messageContent:(NSString *)messageContent completion:(void (^)(NSString *))completion{
-//    
-//    AVIMClient *client = [[AVIMClient alloc]initWithClientId:username];
-//    [client openWithCallback:^(BOOL succeeded, NSError *error) {
-//        [client createConversationWithName:friendInfo.friendNickname clientIds:@[friendInfo.friendNickname] callback:^(AVIMConversation *conversation, NSError *error) {
-//            
-//            [conversation sendMessage:[AVIMTextMessage messageWithText:messageContent attributes:nil]callback:^(BOOL succeeded, NSError *error) {
-//                if (succeeded) {
-//                    completion(@"success");
-//                }else completion(@"failure");
-//            }];
-//        }];
-//    }];
-//}
-//
-//+(void)getChatLogWithUserID:(NSString *)userID friendID:(NSString *)friendID time:(YJ_TweetTime)time primsgID:(NSString *)primsgID completion:(void (^)(NSString *, NSArray *))completion{
-//    
-//}
-//+(void)receiveMessage:(NSString *)userID completion:(void (^)(NSString *, NSArray *))completion{
-//    
-//}
 
 @end

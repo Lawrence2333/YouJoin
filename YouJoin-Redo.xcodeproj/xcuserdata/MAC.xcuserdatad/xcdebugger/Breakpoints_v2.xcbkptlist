@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YouJoin-Redo/YJ_LoginViewController.m"
-            timestampString = "484554164.957033"
+            timestampString = "485979587.582621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "-touchloginBtn"
             landmarkType = "5">
             <Locations>
@@ -58,22 +58,22 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_LoginViewController.m"
-                  timestampString = "485000909.231569"
+                  timestampString = "487096451.70685"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "182"
-                  endingLineNumber = "182"
+                  startingLineNumber = "216"
+                  endingLineNumber = "216"
                   offsetFromSymbolStart = "1236">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_160"
+                  symbolName = "__destroy_helper_block_185"
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_LoginViewController.m"
-                  timestampString = "485000909.232109"
+                  timestampString = "487096451.707998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -81,38 +81,6 @@
                   offsetFromSymbolStart = "17">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YouJoin-Redo/YJ_homepageLeftListController.m"
-            timestampString = "485003878.075992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-touchSave"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YouJoin-Redo/YJ_homepageLeftListController.m"
-            timestampString = "485003878.075992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-touchSave"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,11 +154,11 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingViewController.m"
-                  timestampString = "485000909.237635"
+                  timestampString = "487096451.72591"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
                   offsetFromSymbolStart = "58">
                </Location>
                <Location
@@ -201,11 +169,11 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingViewController.m"
-                  timestampString = "485000909.237843"
+                  timestampString = "487096451.726166"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "206"
-                  endingLineNumber = "206"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
                   offsetFromSymbolStart = "57">
                </Location>
             </Locations>
@@ -362,7 +330,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingTableViewCell.m"
-                  timestampString = "485000909.244883"
+                  timestampString = "487096451.737343"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -377,7 +345,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingTableViewCell.m"
-                  timestampString = "485000909.245083"
+                  timestampString = "487096451.737753"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -400,6 +368,54 @@
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "-setConversation:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouJoin-Redo/YJ_TweetCommentTableViewController.m"
+            timestampString = "487177658.068119"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouJoin-Redo/YJ_homepageTweetCommentCell.m"
+            timestampString = "487096299.365818"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-initWithStyle:reuseIdentifier:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouJoin-Redo/YJ_homepageTweetCommentCell.m"
+            timestampString = "487097473.009889"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-setComment:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

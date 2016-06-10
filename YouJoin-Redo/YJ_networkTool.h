@@ -52,6 +52,9 @@ typedef enum : NSUInteger {
 //点赞
 +(void)upvoteTweetWithUserID:(NSString *)userID tweetID:(NSString *)tweetID completion:(void(^)(NSString *resultStr))completion;
 
+//点赞状态
++(void)isUpvoteTweetWithUserID:(NSString *)userID tweetID:(NSString *)tweetID completion:(void(^)(NSString *resultStr))completion;
+
 //获取好友列表
 +(void)getFriendListWithUserID:(NSString *)userID completion:(void(^)(NSString *resultStr,NSArray *receicedFriendListDictArray))completion;
 

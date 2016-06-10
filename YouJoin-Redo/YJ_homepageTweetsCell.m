@@ -64,7 +64,7 @@
         [upVoteCountView setImage:[UIImage imageNamed:@"UpvoteCount01"] forState:UIControlStateNormal];
         upVoteCountView.enabled = YES;
         upVoteCountView.titleLabel.font = [UIFont systemFontOfSize:10];
-        [upVoteCountView setTitleColor:YJ_HOMEPAGE_GRAY_COLOR forState:UIControlStateNormal];
+        [upVoteCountView setTitleColor:[UIColor colorWithRed:135/255.0 green:135/255.0 blue:135/255.0 alpha:1.0] forState:UIControlStateNormal];
         upVoteCountView.titleLabel.textAlignment = NSTextAlignmentLeft;
         self.upVoteCountView = upVoteCountView;
         [self.mycontentView addSubview:upVoteCountView];
@@ -74,7 +74,7 @@
         [commentCountView setImage:[UIImage imageNamed:@"CommentCount01"] forState:UIControlStateNormal];
         commentCountView.enabled = YES;
         commentCountView.titleLabel.font = [UIFont systemFontOfSize:10];
-        [commentCountView setTitleColor:YJ_HOMEPAGE_GRAY_COLOR forState:UIControlStateNormal];
+        [commentCountView setTitleColor:[UIColor colorWithRed:135/255.0 green:135/255.0 blue:135/255.0 alpha:1.0] forState:UIControlStateNormal];
         commentCountView.titleLabel.textAlignment = NSTextAlignmentLeft;
         self.commentCountView = commentCountView;
         [self.mycontentView addSubview:commentCountView];
@@ -131,6 +131,7 @@
     // 1.头像[NSURL URLWithString:[NSString fixStringByCutLastChar: tweets.iconUrl]]
     [self.iconPicView sd_setImageWithURL:[NSURL URLWithString: [NSString fixStringByCutLastChar: tweets.iconUrl]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.iconPicView.image = [UIImage circleImage:[[UIImage alloc]imageWithImage:image scaledToSize:CGSizeMake(40, 40)] borderWidth:2.0 borderColor:YJ_CIRCLE_BORDER_COLOR];
+        tweets.iconpic = self.iconPicView.image;
     }];
 //    self.iconPicView.image = [UIImage circleImage:tweets.iconpic borderWidth:CIRCLE_BORDER_WIDTH borderColor:YJ_CIRCLE_BORDER_COLOR];
     
