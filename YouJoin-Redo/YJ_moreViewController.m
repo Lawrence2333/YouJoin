@@ -7,8 +7,11 @@
 //
 
 #import "YJ_moreViewController.h"
+#import "YJ_nearByTableViewController.h"
 
 @interface YJ_moreViewController ()
+
+@property (nonatomic,strong) NSMutableArray * vcArray;
 
 @end
 
@@ -20,10 +23,22 @@
     [self.navigationController.navigationBar setBarTintColor:YJ_NAVIGATIONBAR_COLOR];
     [self.navigationController.navigationBar setTitleTextAttributes:YJ_NAVIGATIONBAR_TITLE_ATTRS];
     
+    self.vcArray = [NSMutableArray array];
+    
+    [self setupNearByTableViewController];
+    [self.tableView reloadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+}
+
+-(void)setupNearByTableViewController{
+    
+    YJ_nearByTableViewController *nearbyVC = [[YJ_nearByTableViewController alloc]init];
+    nearbyVC.title = @"附近的人";
+    [self.vcArray addObject:nearbyVC];
+    
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
@@ -38,13 +53,33 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return self.vcArray.count;
+}
+
+#pragma mark - tableView delegate
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *identifier = @"moreCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    cell.textLabel.text = ((UIViewController *)self.vcArray[indexPath.row]).title;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.alpha = 0.8;
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIViewController *vc = self.vcArray[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

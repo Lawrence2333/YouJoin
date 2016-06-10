@@ -20,6 +20,11 @@ typedef enum : NSUInteger {
     YJ_TweetOld,
     YJ_TweetNew,
 } YJ_TweetTime;
+typedef enum : NSUInteger {
+    LocationChangeYes,
+    LocationChangeNo,
+}YJ_LocationChange;
+
 @interface YJ_networkTool : NSObject
 
 //登录
@@ -63,4 +68,7 @@ typedef enum : NSUInteger {
 
 //获取心情动态的评论
 +(void)getTweetCommentWithTweetID:(NSString *)tweetID completion:(void(^)(NSString *resultStr,NSArray *receicedCommentsDictArray))completion;
+
+//获取附近的人列表
++(void)getNearByPeopleListWithUserID:(NSString *)userID isLocationChange:(YJ_LocationChange)locationChange locationArray:(NSArray *)locationArray completion:(void(^)(NSString *resultStr,NSArray *receicedFriendListDictArray))completion;
 @end

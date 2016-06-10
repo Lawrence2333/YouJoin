@@ -238,6 +238,38 @@
     });
 }
 
+#pragma mark - nearBy
++(void)getNearByPeopleListWithUserID:(NSString *)userID isLocationChange:(YJ_LocationChange)locationChange locationArray:(NSArray *)locationArray completion:(void (^)(NSString *, NSArray *))completion{
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:GET_AROUNDLIST_URL]];
+    request.HTTPMethod = @"POST";
+    NSString *locationChangedStr = [[NSString alloc]init];
+    if (locationChange == LocationChangeYes) {
+        locationChangedStr = @"true";
+    }else{
+        locationChangedStr = @"false";
+    }
+    NSMutableString *sendStr = [NSMutableString stringWithFormat:@"user_id=%@&location_changed=%@",userID,locationChangedStr];
+    for (int i = 0; i<4; i++) {
+        [sendStr appendFormat:@"&location%d=%@",i+1,locationArray[i]];
+    }
+    request.HTTPBody = [sendStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"getNearByPeopleList------------sendStr==%@",sendStr);
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        
+        if(response != NULL){
+            
+            NSDictionary *receivedDict = [YJ_JSONSerialization dictWithDataWithArray:data];
+            NSLog(@"getNearByPeopleList-----------receivedDict==%@",receivedDict);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion([receivedDict valueForKey:@"result"],[receivedDict valueForKey:@"friends"]);
+            });
+        }
+    }];
+    
+}
+
 #pragma mark - im
 
 @end

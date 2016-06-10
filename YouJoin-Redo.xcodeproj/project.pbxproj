@@ -97,6 +97,7 @@
 		04FDA0FC1CC218690023C588 /* YJ_moreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDA0FB1CC218690023C588 /* YJ_moreViewController.m */; };
 		04FDA0FF1CC21AAB0023C588 /* YJ_userInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDA0FE1CC21AAB0023C588 /* YJ_userInfo.m */; };
 		04FEE5E21D07B61E004063A1 /* YJ_TweetCommentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEE5E11D07B61E004063A1 /* YJ_TweetCommentTableViewController.m */; };
+		04FF5CC41D0AF28B00E2A5C4 /* YJ_nearByTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FF5CC31D0AF28B00E2A5C4 /* YJ_nearByTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +303,8 @@
 		04FDA0FE1CC21AAB0023C588 /* YJ_userInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_userInfo.m; sourceTree = "<group>"; };
 		04FEE5E01D07B61E004063A1 /* YJ_TweetCommentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_TweetCommentTableViewController.h; sourceTree = "<group>"; };
 		04FEE5E11D07B61E004063A1 /* YJ_TweetCommentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_TweetCommentTableViewController.m; sourceTree = "<group>"; };
+		04FF5CC21D0AF28B00E2A5C4 /* YJ_nearByTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJ_nearByTableViewController.h; sourceTree = "<group>"; };
+		04FF5CC31D0AF28B00E2A5C4 /* YJ_nearByTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJ_nearByTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -718,6 +721,8 @@
 			children = (
 				04FDA0FA1CC218690023C588 /* YJ_moreViewController.h */,
 				04FDA0FB1CC218690023C588 /* YJ_moreViewController.m */,
+				04FF5CC21D0AF28B00E2A5C4 /* YJ_nearByTableViewController.h */,
+				04FF5CC31D0AF28B00E2A5C4 /* YJ_nearByTableViewController.m */,
 			);
 			name = more;
 			sourceTree = "<group>";
@@ -1000,6 +1005,7 @@
 				041011881CE0232700BC09CF /* UIImage+MultiFormat.m in Sources */,
 				041011871CE0232700BC09CF /* UIImage+GIF.m in Sources */,
 				044038DD1C5928F90005436F /* NSString+Json.m in Sources */,
+				04FF5CC41D0AF28B00E2A5C4 /* YJ_nearByTableViewController.m in Sources */,
 				04E457381CE8625B006CE627 /* YJ_mainViewController.m in Sources */,
 				040BDA6E1CDE1C0700BFAE1F /* YJ_editTweetController.m in Sources */,
 				04FDA0FC1CC218690023C588 /* YJ_moreViewController.m in Sources */,

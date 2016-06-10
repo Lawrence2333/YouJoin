@@ -58,7 +58,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_LoginViewController.m"
-                  timestampString = "487096451.70685"
+                  timestampString = "487258575.626979"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "216"
@@ -73,7 +73,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_LoginViewController.m"
-                  timestampString = "487096451.707998"
+                  timestampString = "487258575.62782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -154,7 +154,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingViewController.m"
-                  timestampString = "487096451.72591"
+                  timestampString = "487258575.633971"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "208"
@@ -169,7 +169,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingViewController.m"
-                  timestampString = "487096451.726166"
+                  timestampString = "487258575.634267"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "208"
@@ -330,7 +330,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingTableViewCell.m"
-                  timestampString = "487096451.737343"
+                  timestampString = "487258575.641486"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
@@ -345,7 +345,7 @@
                   moduleName = "YouJoin-Redo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MAC/Desktop/project/YouJoin%20Redo/YouJoin-Redo/YouJoin-Redo/YJ_chattingTableViewCell.m"
-                  timestampString = "487096451.737753"
+                  timestampString = "487258575.64171"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -416,6 +416,54 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "-setComment:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouJoin-Redo/YJ_moreViewController.m"
+            timestampString = "487258432.815806"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouJoin-Redo/YJ_moreViewController.m"
+            timestampString = "487258432.815806"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YouJoin-Redo/YJ_moreViewController.m"
+            timestampString = "487258432.815806"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-setupNearByTableViewController"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

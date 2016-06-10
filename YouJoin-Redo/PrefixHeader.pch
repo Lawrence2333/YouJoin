@@ -46,4 +46,6 @@
 #define UPVOTE_TWEET_URL @"http://www.tekbroaden.com/youjoin-server/controllers/upvote_tweet.php"
 #define GET_COMMENTS_URL @"http://www.tekbroaden.com/youjoin-server/controllers/get_comments.php"
 #define IS_UPVOTE_TWEET_URL @"http://www.tekbroaden.com/youjoin-server/controllers/isupvote_tweet.php"
+#define GET_AROUNDLIST_URL @"http://www.tekbroaden.com/youjoin-server/controllers/get_aroundlist.php"
+
 #endif /* PrefixHeader_pch */

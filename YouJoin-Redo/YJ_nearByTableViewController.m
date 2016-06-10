@@ -1,36 +1,37 @@
 //
-//  YJ_friendListController.m
+//  YJ_nearByTableViewController.m
 //  YouJoin-Redo
 //
-//  Created by Lawrence on 16/5/7.
+//  Created by Lawrence on 16/6/10.
 //  Copyright © 2016年 MacBookPro. All rights reserved.
 //
 
-#import "YJ_friendListController.h"
-#import "YJ_friendList.h"
-#import "YJ_addFriendViewController.h"
+#import "YJ_nearByTableViewController.h"
 #import "YJ_networkTool.h"
+#import "YJ_userInfo.h"
+#import "NSString+Password.h"
+#import "YJ_friendListCell.h"
+#import "YJ_friendList.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+CutLastChar.h"
-#import "YJ_userInfo.h"
-#import "UIImage+Circle.h"
 #import "UIImage+SmallImage.h"
-#import "YJ_chattingViewController.h"
-#import "YJ_friendListCell.h"
+#import "UIImage+Circle.h"
 
-@interface YJ_friendListController ()<UITableViewDataSource,UITableViewDelegate>
+
+#import <CoreLocation/CoreLocation.h>
+
+@interface YJ_nearByTableViewController ()
 
 @property (nonatomic,strong) YJ_friendList *friends ;
 
 @end
 
-@implementation YJ_friendListController
+@implementation YJ_nearByTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    [self setupNearByList];
     
     [self.navigationController.navigationBar setBarTintColor:YJ_NAVIGATIONBAR_COLOR];
     [self.navigationController.navigationBar setTitleTextAttributes:YJ_NAVIGATIONBAR_TITLE_ATTRS];
@@ -40,21 +41,52 @@
     headerImage.contentMode = UIViewContentModeScaleAspectFit;
     self.tableView.tableHeaderView = headerImage;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addFriendControllerBtn)];
+}
+
+-(void)setupNearByList{
     
-    [YJ_networkTool getFriendListWithUserID:[[YJ_userInfo sharedInstance]userID] completion:^(NSString *resultStr, NSArray *receicedFriendListDictArray) {
+    CLLocationManager *locationManager = [[CLLocationManager alloc]init];
+    locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
+    [locationManager startUpdatingLocation];
+    
+    CLLocationCoordinate2D locat = locationManager.location.coordinate;
+    [locationManager stopUpdatingLocation];
+    
+    NSMutableArray *locationArray = [NSMutableArray array];
+    
+    NSString *location0 = [[NSString stringWithFormat:@"%.3f%.3f",locat.longitude-0.001,locat.latitude]MD5];
+    NSString *location1 = [[NSString stringWithFormat:@"%.3f%.3f",locat.longitude,locat.latitude-0.001]MD5];
+    NSString *location2 = [[NSString stringWithFormat:@"%.3f%.3f",locat.longitude+0.001,locat.latitude-0.001]MD5];
+    NSString *location3 = [[NSString stringWithFormat:@"%.3f%.3f",locat.longitude,locat.latitude+0.001]MD5];
+    
+    [locationArray addObject:location0];
+    [locationArray addObject:location1];
+    [locationArray addObject:location2];
+    [locationArray addObject:location3];
+    
+    //获取旧位置
+    NSString *locationOld = [NSString stringWithFormat:@""];
+    locationOld = [[NSUserDefaults standardUserDefaults]objectForKey:[NSString stringWithFormat:@"%@&location_old",[[YJ_userInfo sharedInstance]userID]]];
+    
+    NSString *locationNow = [NSString stringWithFormat:@"%.3f%.3f",locat.longitude,locat.latitude];
+    
+    //判断是否改变位置
+    YJ_LocationChange locationChange = LocationChangeYes;
+    
+    if ([locationNow isEqualToString:locationOld]) {
+        locationChange = LocationChangeNo;
+    }
+    
+    //保存位置
+    [[NSUserDefaults standardUserDefaults]setObject:locationNow forKey:[NSString stringWithFormat:@"%@&location_old",[[YJ_userInfo sharedInstance]userID]]];
+    
+    [YJ_networkTool getNearByPeopleListWithUserID:[[YJ_userInfo sharedInstance]userID] isLocationChange:locationChange locationArray:locationArray completion:^(NSString *resultStr, NSArray *receicedFriendListDictArray) {
         
         self.friends = [[YJ_friendList alloc]init];
         self.friends.friendList = receicedFriendListDictArray;
-        
         [self.tableView reloadData];
     }];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,11 +97,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-   return 1;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.friends.friendList.count;
 }
 
@@ -81,36 +112,11 @@
     
     [cell.iconView sd_setImageWithURL:[NSURL URLWithString:[NSString fixStringByCutLastChar: cell.friendInfo.friendIconUrl]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         cell.iconView.image = [UIImage circleImage:[[UIImage alloc]imageWithImage:image scaledToSize:CGSizeMake(40, 40)] borderWidth:2.0 borderColor:YJ_CIRCLE_BORDER_COLOR];
-    }];    
+    }];
     
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return 52;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    YJ_chattingViewController *chattingVC = [[YJ_chattingViewController alloc]init];
-    chattingVC.friendInfo = self.friends.friendList[indexPath.row];
-    
-    [self.navigationController pushViewController:chattingVC animated:YES];
-    
-}
-
--(void)addFriendControllerBtn{
-    
-    YJ_addFriendViewController *addFriendVC = [[YJ_addFriendViewController alloc]init];
-    
-    [self.navigationController pushViewController:addFriendVC animated:YES];
-    
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
